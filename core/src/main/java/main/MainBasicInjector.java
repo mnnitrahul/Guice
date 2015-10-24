@@ -7,10 +7,7 @@ import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import consumer.MyApplicationWithConstructorInject;
 import injector.ProviderInjectorModule;
-import service.EmailService;
-import service.EnhancedEmailService;
-import service.MessageService;
-import service.SmsService;
+import service.*;
 
 /**
  * Created by rahul.ka on 23/10/15.

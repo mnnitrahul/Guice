@@ -4,6 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
+import consumer.MyApplicationWithAnnotationConstructorInject;
 import consumer.MyApplicationWithConstructorInject;
 import consumer.MyApplicationWithNamedConstructorInject;
 import consumer.MyApplicationWithSetterInject;
@@ -39,6 +40,14 @@ public class MyApplicationAutoInjectMain {
          */
         EmailService singletonEmailService =  injector.getInstance(Key.get(EmailService.class, Names.named("SingletonEmailService")));
         singletonEmailService.sendMsg("hello world");
+
+        /**
+         * Auto Inject with Annotation
+         * https://github.com/google/guice/wiki/BindingAnnotations
+         */
+        MyApplicationWithAnnotationConstructorInject app4 = injector.getInstance(MyApplicationWithAnnotationConstructorInject.class);
+        app4.sendMessage("Hello World");
+
 
     }
 }

@@ -6,10 +6,7 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import service.EmailService;
-import service.EnhancedEmailService;
-import service.MessageService;
-import service.SmsService;
+import service.*;
 
 /**
  * Created by rahul.ka on 23/10/15.
@@ -18,6 +15,7 @@ public class ProviderInjectorModule extends AbstractModule{
     @Override
     protected void configure() {
         bind(MessageService.class).to(SmsService.class);
+        bind(MessageService.class).annotatedWith(SingletonSmsService.class).to(SmsService.class);
         bind(MessageService.class).annotatedWith(Names.named("SingletonEmailService")).to(EmailService.class);
     }
 
